@@ -1,0 +1,60 @@
+{
+  "name": "opn-cli",
+  "version": "0.0.0",
+  "description": "A better node-open. Opens stuff like websites, files, executables. Cross-platform.",
+  "license": "MIT",
+  "repository": "sindresorhus/opn-cli",
+  "bin": {
+    "opn": "cli.js"
+  },
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "keywords": [
+    "cli-app",
+    "cli",
+    "app",
+    "open",
+    "opn",
+    "opener",
+    "opens",
+    "launch",
+    "start",
+    "xdg-open",
+    "xdg",
+    "default",
+    "cmd",
+    "browser",
+    "editor",
+    "executable",
+    "exe",
+    "url",
+    "urls",
+    "arguments",
+    "args",
+    "spawn",
+    "exec",
+    "child",
+    "process",
+    "website",
+    "file"
+  ],
+  "dependencies": {
+    "meow": "^3.3.0",
+    "opn": "^3.0.2"
+  },
+  "devDependencies": {
+    "ava": "0.0.4"
+  }
+}
