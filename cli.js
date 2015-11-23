@@ -2,8 +2,13 @@
 'use strict';
 var meow = require('meow');
 var opn = require('opn');
+var path = require('path');
+var pkg = require(path.join(__dirname, 'node_modules', 'opn', 'package.json'));
 
 var cli = meow({
+	pkg: {
+		version:pkg.version
+	},
 	help: [
 		'Usage',
 		'  $ opn <file|url> [--no-wait] [-- <app> [args]]',
@@ -17,7 +22,15 @@ var cli = meow({
 		'  $ opn http://sindresorhus.com -- \'google chrome\' --incognito',
 		'  $ opn unicorn.png'
 	]
+},
+{
+	alias: {
+		h: 'help',
+		v: 'version'
+	}
 });
+
+if (!cli.input.length) cli.showHelp();
 
 cli.flags.app = cli.input.slice(1);
 
