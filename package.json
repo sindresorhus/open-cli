@@ -13,10 +13,10 @@
     "url": "sindresorhus.com"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "xo && ava"
   },
   "files": [
     "cli.js"
@@ -51,10 +51,12 @@
     "file"
   ],
   "dependencies": {
-    "meow": "^3.3.0",
-    "opn": "^3.0.2"
+    "meow": "^3.7.0",
+    "opn": "^4.0.0"
   },
   "devDependencies": {
-    "ava": "0.0.4"
+    "ava": "*",
+    "execa": "^0.2.2",
+    "xo": "*"
   }
 }

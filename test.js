@@ -1,12 +1,6 @@
-'use strict';
-var test = require('ava');
-var childProcess = require('child_process');
+import test from 'ava';
+import execa from 'execa';
 
-test(function (t) {
-	t.plan(2);
-
-	childProcess.execFile('./cli.js', ['--version'], {cwd: __dirname}, function (err, stdout) {
-		t.assert(!err, err);
-		t.assert(stdout.trim().length > 0);
-	});
+test(async t => {
+	t.true((await execa('./cli.js', ['--version'])).stdout.length > 0);
 });

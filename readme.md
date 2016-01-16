@@ -21,7 +21,7 @@ $ opn --help
   Options
     --no-wait  Don't wait for the app to exit
 
-  Example
+  Examples
     $ opn http://sindresorhus.com
     $ opn http://sindresorhus.com -- firefox
     $ opn http://sindresorhus.com -- 'google chrome' --incognito
