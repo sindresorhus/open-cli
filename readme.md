@@ -16,10 +16,10 @@ $ npm install --global opn-cli
 $ opn --help
 
   Usage
-    $ opn <file|url> [--no-wait] [-- <app> [args]]
+    $ opn <file|url> [--wait] [-- <app> [args]]
 
   Options
-    --no-wait  Don't wait for the app to exit
+    --no-wait  Wait for the app to exit
 
   Examples
     $ opn http://sindresorhus.com
