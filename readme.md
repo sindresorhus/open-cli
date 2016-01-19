@@ -19,7 +19,7 @@ $ opn --help
     $ opn <file|url> [--wait] [-- <app> [args]]
 
   Options
-    --no-wait  Wait for the app to exit
+    --wait  Wait for the app to exit
 
   Examples
     $ opn http://sindresorhus.com
