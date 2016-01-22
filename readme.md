@@ -17,6 +17,7 @@ $ opn --help
 
   Usage
     $ opn <file|url> [--wait] [-- <app> [args]]
+    $ stdout | opn [--wait] [-- <app> [args]]
 
   Options
     --wait  Wait for the app to exit
@@ -26,6 +27,8 @@ $ opn --help
     $ opn http://sindresorhus.com -- firefox
     $ opn http://sindresorhus.com -- 'google chrome' --incognito
     $ opn unicorn.png
+    $ echo http://sindresorhus.com | opn
+    $ opn data:,Hello%2C%20World!
 ```
 
 
