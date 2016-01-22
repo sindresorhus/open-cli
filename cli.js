@@ -2,10 +2,12 @@
 'use strict';
 const meow = require('meow');
 const opn = require('opn');
+const getStdin = require('get-stdin');
 
 const cli = meow(`
 	Usage
 	  $ opn <file|url> [--wait] [-- <app> [args]]
+	  $ stdout | opn [--wait] [-- <app> [args]]
 
 	Options
 	  --wait  Wait for the app to exit
@@ -15,6 +17,7 @@ const cli = meow(`
 	  $ opn http://sindresorhus.com -- firefox
 	  $ opn http://sindresorhus.com -- 'google chrome' --incognito
 	  $ opn unicorn.png
+	  $ echo http://sindresorhus.com | opn
 `, {
 	default: {
 		wait: false
@@ -23,4 +26,8 @@ const cli = meow(`
 
 cli.flags.app = cli.input.slice(1);
 
-opn(cli.input[0], cli.flags);
+if (cli.input[0]) {
+	opn(cli.input[0], cli.flags);
+} else {
+	getStdin().then(stdin => opn(stdin.trim(), cli.flags));
+}

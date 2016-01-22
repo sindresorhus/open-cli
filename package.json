@@ -51,6 +51,7 @@
     "file"
   ],
   "dependencies": {
+    "get-stdin": "^5.0.1",
     "meow": "^3.7.0",
     "opn": "^4.0.0"
   },
