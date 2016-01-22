@@ -28,6 +28,7 @@ $ opn --help
     $ opn http://sindresorhus.com -- 'google chrome' --incognito
     $ opn unicorn.png
     $ echo http://sindresorhus.com | opn
+    $ opn data:,Hello%2C%20World!
 ```
 
 

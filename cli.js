@@ -3,6 +3,8 @@
 const meow = require('meow');
 const opn = require('opn');
 const getStdin = require('get-stdin');
+const tempWrite = require('temp-write');
+const dataUriToBuffer = require('data-uri-to-buffer');
 
 const cli = meow(`
 	Usage
@@ -18,6 +20,7 @@ const cli = meow(`
 	  $ opn http://sindresorhus.com -- 'google chrome' --incognito
 	  $ opn unicorn.png
 	  $ echo http://sindresorhus.com | opn
+	  $ opn data:,Hello%2C%20World!
 `, {
 	default: {
 		wait: false
@@ -26,8 +29,15 @@ const cli = meow(`
 
 cli.flags.app = cli.input.slice(1);
 
-if (cli.input[0]) {
-	opn(cli.input[0], cli.flags);
-} else {
-	getStdin().then(stdin => opn(stdin.trim(), cli.flags));
-}
+const getInput = cb => {
+	return cli.input[0] ?
+		cb(cli.input[0]) : getStdin().then(stdin => cb(stdin));
+};
+
+const transform = input => {
+	input = input.trim();
+	return input.slice(0, 5) === 'data:' ?
+		tempWrite.sync(dataUriToBuffer(input)) : input;
+};
+
+getInput(input => opn(transform(input), cli.flags));
