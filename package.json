@@ -51,8 +51,11 @@
     "file"
   ],
   "dependencies": {
+    "file-type": "^3.6.0",
+    "get-stdin": "^5.0.1",
     "meow": "^3.7.0",
-    "opn": "^4.0.0"
+    "opn": "^4.0.0",
+    "temp-write": "^2.1.0"
   },
   "devDependencies": {
     "ava": "*",

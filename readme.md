@@ -17,15 +17,19 @@ $ opn --help
 
   Usage
     $ opn <file|url> [--wait] [-- <app> [args]]
+    $ stdout | opn [--wait] [--ext] [-- <app> [args]]
 
   Options
     --wait  Wait for the app to exit
+    --ext   File extension for stdin
 
   Examples
     $ opn http://sindresorhus.com
     $ opn http://sindresorhus.com -- firefox
     $ opn http://sindresorhus.com -- 'google chrome' --incognito
     $ opn unicorn.png
+    $ cat ./image.png | opn
+    $ echo '[]' | opn --ext json
 ```
 
 
