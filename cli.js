@@ -9,19 +9,19 @@ const fileType = require('file-type');
 const cli = meow(`
 	Usage
 	  $ opn <file|url> [--wait] [-- <app> [args]]
-	  $ stdout | opn [--wait] [--ext] [-- <app> [args]]
+	  $ cat <file> | opn [--wait] [--ext] [-- <app> [args]]
 
 	Options
 	  --wait  Wait for the app to exit
-	  --ext   File extension for stdin
+	  --ext   File extension for when stdin file type can't be detected
 
 	Examples
 	  $ opn http://sindresorhus.com
 	  $ opn http://sindresorhus.com -- firefox
 	  $ opn http://sindresorhus.com -- 'google chrome' --incognito
 	  $ opn unicorn.png
-	  $ cat ./image.png | opn
-	  $ echo '[]' | opn --ext json
+	  $ cat unicorn.png | opn
+	  $ echo '<h1>Unicorns!</h1>' | opn --ext=html
 `, {
 	default: {
 		wait: false
@@ -33,7 +33,7 @@ cli.flags.app = cli.input.slice(1);
 const input = cli.input[0];
 
 if (!input && process.stdin.isTTY) {
-	console.error('Input required');
+	console.error('Specify a filepath or URL');
 	process.exit(1);
 }
 
