@@ -1,6 +1,6 @@
 {
   "name": "opn-cli",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "A better node-open. Opens stuff like websites, files, executables. Cross-platform.",
   "license": "MIT",
   "repository": "sindresorhus/opn-cli",
