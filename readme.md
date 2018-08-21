@@ -26,7 +26,7 @@ $ opn --help
   Examples
     $ opn http://sindresorhus.com
     $ opn http://sindresorhus.com -- firefox
-    $ opn http://sindresorhus.com -- 'google chrome' --incognito
+    $ opn http://sindresorhus.com -- chrome --incognito
     $ opn unicorn.png
     $ cat unicorn.png | opn
     $ echo '<h1>Unicorns!</h1>' | opn --ext=html
