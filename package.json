@@ -1,68 +1,65 @@
 {
-  "name": "opn-cli",
-  "version": "3.1.0",
-  "description": "A better node-open. Opens stuff like websites, files, executables. Cross-platform.",
-  "license": "MIT",
-  "repository": "sindresorhus/opn-cli",
-  "bin": {
-    "opn": "cli.js"
-  },
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "engines": {
-    "node": ">=4"
-  },
-  "scripts": {
-    "test": "xo && ava"
-  },
-  "files": [
-    "cli.js"
-  ],
-  "keywords": [
-    "cli-app",
-    "cli",
-    "app",
-    "open",
-    "opn",
-    "opener",
-    "opens",
-    "launch",
-    "start",
-    "xdg-open",
-    "xdg",
-    "default",
-    "cmd",
-    "browser",
-    "editor",
-    "executable",
-    "exe",
-    "url",
-    "urls",
-    "arguments",
-    "args",
-    "spawn",
-    "exec",
-    "child",
-    "process",
-    "website",
-    "file"
-  ],
-  "dependencies": {
-    "file-type": "^3.6.0",
-    "get-stdin": "^5.0.1",
-    "meow": "^3.7.0",
-    "opn": "^5.4.0",
-    "temp-write": "^2.1.0"
-  },
-  "devDependencies": {
-    "ava": "*",
-    "execa": "^0.2.2",
-    "xo": "*"
-  },
-  "xo": {
-    "esnext": true
-  }
+	"name": "opn-cli",
+	"version": "3.1.0",
+	"description": "A better node-open. Opens stuff like websites, files, executables. Cross-platform.",
+	"license": "MIT",
+	"repository": "sindresorhus/opn-cli",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"bin": {
+		"opn": "cli.js"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"cli.js"
+	],
+	"keywords": [
+		"cli-app",
+		"cli",
+		"app",
+		"open",
+		"opn",
+		"opener",
+		"opens",
+		"launch",
+		"start",
+		"xdg-open",
+		"xdg",
+		"default",
+		"cmd",
+		"browser",
+		"editor",
+		"executable",
+		"exe",
+		"url",
+		"urls",
+		"arguments",
+		"args",
+		"spawn",
+		"exec",
+		"child",
+		"process",
+		"website",
+		"file"
+	],
+	"dependencies": {
+		"file-type": "^10.4.0",
+		"get-stdin": "^6.0.0",
+		"meow": "^5.0.0",
+		"opn": "^5.4.0",
+		"temp-write": "^3.4.0"
+	},
+	"devDependencies": {
+		"ava": "^0.25.0",
+		"execa": "^1.0.0",
+		"xo": "^0.23.0"
+	}
 }

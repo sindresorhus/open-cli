@@ -1,6 +1,7 @@
 import test from 'ava';
 import execa from 'execa';
 
-test(async t => {
-	t.true((await execa('./cli.js', ['--version'])).stdout.length > 0);
+test('main', async t => {
+	const {stdout} = await execa('./cli.js', ['--version']);
+	t.true(stdout.length > 0);
 });

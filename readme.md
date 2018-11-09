@@ -24,9 +24,9 @@ $ opn --help
     --ext   File extension for when stdin file type can't be detected
 
   Examples
-    $ opn http://sindresorhus.com
-    $ opn http://sindresorhus.com -- firefox
-    $ opn http://sindresorhus.com -- 'google chrome' --incognito
+    $ opn https://sindresorhus.com
+    $ opn https://sindresorhus.com -- firefox
+    $ opn https://sindresorhus.com -- 'google chrome' --incognito
     $ opn unicorn.png
     $ cat unicorn.png | opn
     $ echo '<h1>Unicorns!</h1>' | opn --ext=html
@@ -42,4 +42,4 @@ The [following file types](https://github.com/sindresorhus/file-type#supported-f
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)

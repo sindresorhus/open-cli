@@ -16,15 +16,18 @@ const cli = meow(`
 	  --ext   File extension for when stdin file type can't be detected
 
 	Examples
-	  $ opn http://sindresorhus.com
-	  $ opn http://sindresorhus.com -- firefox
-	  $ opn http://sindresorhus.com -- 'google chrome' --incognito
+	  $ opn https://sindresorhus.com
+	  $ opn https://sindresorhus.com -- firefox
+	  $ opn https://sindresorhus.com -- 'google chrome' --incognito
 	  $ opn unicorn.png
 	  $ cat unicorn.png | opn
 	  $ echo '<h1>Unicorns!</h1>' | opn --ext=html
 `, {
-	default: {
-		wait: false
+	flags: {
+		wait: {
+			type: 'boolean',
+			default: false
+		}
 	}
 });
 
@@ -40,9 +43,10 @@ if (!input && process.stdin.isTTY) {
 if (input) {
 	opn(input, cli.flags);
 } else {
-	getStdin.buffer().then(stdin => {
+	(async () => {
+		const stdin = await getStdin.buffer();
 		const type = fileType(stdin);
-		const ext = (cli.flags.ext || type && type.ext || 'txt');
+		const ext = cli.flags.ext || (type && type.ext) || 'txt';
 		opn(tempWrite.sync(stdin, `opn.${ext}`), cli.flags);
-	});
+	})();
 }
