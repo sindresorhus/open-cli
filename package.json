@@ -1,6 +1,6 @@
 {
 	"name": "opn-cli",
-	"version": "4.0.0",
+	"version": "4.1.0",
 	"description": "Open stuff like URLs, files, executables. Cross-platform.",
 	"license": "MIT",
 	"repository": "sindresorhus/opn-cli",
