@@ -1,19 +1,20 @@
 #!/usr/bin/env node
 'use strict';
 const meow = require('meow');
-const opn = require('opn');
+const open = require('open');
 const getStdin = require('get-stdin');
 const tempWrite = require('temp-write');
 const fileType = require('file-type');
 
 const cli = meow(`
 	Usage
-	  $ opn <file|url> [--wait] [-- <app> [args]]
-	  $ cat <file> | opn [--wait] [--ext] [-- <app> [args]]
+	  $ opn <file|url> [--wait] [--background] [-- <app> [args]]
+	  $ cat <file> | opn [--ext] [--wait] [--background] [-- <app> [args]]
 
 	Options
-	  --wait  Wait for the app to exit
-	  --ext   File extension for when stdin file type can't be detected
+	  --wait         Wait for the app to exit
+	  --background   Do not bring the app to the foreground (macOS only)
+	  --ext          File extension for when stdin file type can't be detected
 
 	Examples
 	  $ opn https://sindresorhus.com
@@ -27,6 +28,13 @@ const cli = meow(`
 		wait: {
 			type: 'boolean',
 			default: false
+		},
+		background: {
+			type: 'boolean',
+			default: false
+		},
+		ext: {
+			type: 'string'
 		}
 	}
 });
@@ -41,12 +49,12 @@ if (!input && process.stdin.isTTY) {
 }
 
 if (input) {
-	opn(input, cli.flags);
+	open(input, cli.flags);
 } else {
 	(async () => {
 		const stdin = await getStdin.buffer();
 		const type = fileType(stdin);
 		const ext = cli.flags.ext || (type && type.ext) || 'txt';
-		opn(tempWrite.sync(stdin, `opn.${ext}`), cli.flags);
+		open(tempWrite.sync(stdin, `opn.${ext}`), cli.flags);
 	})();
 }

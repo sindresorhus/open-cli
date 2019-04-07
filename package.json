@@ -1,7 +1,7 @@
 {
 	"name": "opn-cli",
 	"version": "4.0.0",
-	"description": "A better node-open. Opens stuff like websites, files, executables. Cross-platform.",
+	"description": "Open stuff like URLs, files, executables. Cross-platform.",
 	"license": "MIT",
 	"repository": "sindresorhus/opn-cli",
 	"author": {
@@ -51,15 +51,15 @@
 		"file"
 	],
 	"dependencies": {
-		"file-type": "^10.4.0",
+		"file-type": "^10.10.0",
 		"get-stdin": "^6.0.0",
 		"meow": "^5.0.0",
-		"opn": "^5.4.0",
+		"open": "^6.1.0",
 		"temp-write": "^3.4.0"
 	},
 	"devDependencies": {
-		"ava": "^0.25.0",
+		"ava": "^1.4.1",
 		"execa": "^1.0.0",
-		"xo": "^0.23.0"
+		"xo": "^0.24.0"
 	}
 }

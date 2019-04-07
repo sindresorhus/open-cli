@@ -1,6 +1,6 @@
 # opn-cli [![Build Status](https://travis-ci.org/sindresorhus/opn-cli.svg?branch=master)](https://travis-ci.org/sindresorhus/opn-cli)
 
-> A better [node-open](https://github.com/pwnall/node-open). Opens stuff like websites, files, executables. Cross-platform.
+> Open stuff like URLs, files, executables. Cross-platform.
 
 
 ## Install
@@ -16,12 +16,13 @@ $ npm install --global opn-cli
 $ opn --help
 
   Usage
-    $ opn <file|url> [--wait] [-- <app> [args]]
-    $ cat <file> | opn [--wait] [--ext] [-- <app> [args]]
+    $ opn <file|url> [--wait] [--background] [-- <app> [args]]
+    $ cat <file> | opn [--ext] [--wait] [--background] [-- <app> [args]]
 
   Options
-    --wait  Wait for the app to exit
-    --ext   File extension for when stdin file type can't be detected
+    --wait         Wait for the app to exit
+    --background   Do not bring the app to the foreground (macOS only)
+    --ext          File extension for when stdin file type can't be detected
 
   Examples
     $ opn https://sindresorhus.com
@@ -37,7 +38,7 @@ The [following file types](https://github.com/sindresorhus/file-type#supported-f
 
 ## Related
 
-- [opn](https://github.com/sindresorhus/opn) - API for this module
+- [open](https://github.com/sindresorhus/open) - API for this module
 
 
 ## License
