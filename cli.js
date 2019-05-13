@@ -9,12 +9,12 @@ const fileType = require('file-type');
 const cli = meow(`
 	Usage
 	  $ open-cli <file|url> [--wait] [--background] [-- <app> [args]]
-	  $ cat <file> | open-cli [--ext] [--wait] [--background] [-- <app> [args]]
+	  $ cat <file> | open-cli [--extension] [--wait] [--background] [-- <app> [args]]
 
 	Options
 	  --wait         Wait for the app to exit
 	  --background   Do not bring the app to the foreground (macOS only)
-	  --ext          File extension for when stdin file type can't be detected
+	  --extension    File extension for when stdin file type can't be detected
 
 	Examples
 	  $ open-cli https://sindresorhus.com
@@ -22,7 +22,7 @@ const cli = meow(`
 	  $ open-cli https://sindresorhus.com -- 'google chrome' --incognito
 	  $ open-cli unicorn.png
 	  $ cat unicorn.png | open-cli
-	  $ echo '<h1>Unicorns!</h1>' | open-cli --ext=html
+	  $ echo '<h1>Unicorns!</h1>' | open-cli --extension=html
 `, {
 	flags: {
 		wait: {
@@ -33,7 +33,7 @@ const cli = meow(`
 			type: 'boolean',
 			default: false
 		},
-		ext: {
+		extension: {
 			type: 'string'
 		}
 	}
@@ -48,13 +48,13 @@ if (!input && process.stdin.isTTY) {
 	process.exit(1);
 }
 
-if (input) {
-	open(input, cli.flags);
-} else {
-	(async () => {
+(async () => {
+	if (input) {
+		await open(input, cli.flags);
+	} else {
 		const stdin = await getStdin.buffer();
 		const type = fileType(stdin);
-		const ext = cli.flags.ext || (type && type.ext) || 'txt';
-		open(tempWrite.sync(stdin, `open.${ext}`), cli.flags);
-	})();
-}
+		const extension = cli.flags.extension || (type && type.ext) || 'txt';
+		await open(tempWrite.sync(stdin, `open.${extension}`), cli.flags);
+	}
+})();
