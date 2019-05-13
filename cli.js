@@ -8,8 +8,8 @@ const fileType = require('file-type');
 
 const cli = meow(`
 	Usage
-	  $ opn <file|url> [--wait] [--background] [-- <app> [args]]
-	  $ cat <file> | opn [--ext] [--wait] [--background] [-- <app> [args]]
+	  $ open-cli <file|url> [--wait] [--background] [-- <app> [args]]
+	  $ cat <file> | open-cli [--ext] [--wait] [--background] [-- <app> [args]]
 
 	Options
 	  --wait         Wait for the app to exit
@@ -17,12 +17,12 @@ const cli = meow(`
 	  --ext          File extension for when stdin file type can't be detected
 
 	Examples
-	  $ opn https://sindresorhus.com
-	  $ opn https://sindresorhus.com -- firefox
-	  $ opn https://sindresorhus.com -- 'google chrome' --incognito
-	  $ opn unicorn.png
-	  $ cat unicorn.png | opn
-	  $ echo '<h1>Unicorns!</h1>' | opn --ext=html
+	  $ open-cli https://sindresorhus.com
+	  $ open-cli https://sindresorhus.com -- firefox
+	  $ open-cli https://sindresorhus.com -- 'google chrome' --incognito
+	  $ open-cli unicorn.png
+	  $ cat unicorn.png | open-cli
+	  $ echo '<h1>Unicorns!</h1>' | open-cli --ext=html
 `, {
 	flags: {
 		wait: {
@@ -55,6 +55,6 @@ if (input) {
 		const stdin = await getStdin.buffer();
 		const type = fileType(stdin);
 		const ext = cli.flags.ext || (type && type.ext) || 'txt';
-		open(tempWrite.sync(stdin, `opn.${ext}`), cli.flags);
+		open(tempWrite.sync(stdin, `open.${ext}`), cli.flags);
 	})();
 }

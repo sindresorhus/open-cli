@@ -1,16 +1,16 @@
 {
-	"name": "opn-cli",
+	"name": "open-cli",
 	"version": "4.1.0",
 	"description": "Open stuff like URLs, files, executables. Cross-platform.",
 	"license": "MIT",
-	"repository": "sindresorhus/opn-cli",
+	"repository": "sindresorhus/open-cli",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
 		"url": "sindresorhus.com"
 	},
 	"bin": {
-		"opn": "cli.js"
+		"open-cli": "cli.js"
 	},
 	"engines": {
 		"node": ">=8"
@@ -26,7 +26,6 @@
 		"cli",
 		"app",
 		"open",
-		"opn",
 		"opener",
 		"opens",
 		"launch",
@@ -42,7 +41,6 @@
 		"url",
 		"urls",
 		"arguments",
-		"args",
 		"spawn",
 		"exec",
 		"child",
@@ -51,11 +49,11 @@
 		"file"
 	],
 	"dependencies": {
-		"file-type": "^10.10.0",
-		"get-stdin": "^6.0.0",
+		"file-type": "^11.0.0",
+		"get-stdin": "^7.0.0",
 		"meow": "^5.0.0",
-		"open": "^6.1.0",
-		"temp-write": "^3.4.0"
+		"open": "^6.3.0",
+		"temp-write": "^4.0.0"
 	},
 	"devDependencies": {
 		"ava": "^1.4.1",

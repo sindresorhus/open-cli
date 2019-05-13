@@ -1,4 +1,4 @@
-# opn-cli [![Build Status](https://travis-ci.org/sindresorhus/opn-cli.svg?branch=master)](https://travis-ci.org/sindresorhus/opn-cli)
+# open-cli [![Build Status](https://travis-ci.org/sindresorhus/open-cli.svg?branch=master)](https://travis-ci.org/sindresorhus/open-cli)
 
 > Open stuff like URLs, files, executables. Cross-platform.
 
@@ -6,18 +6,18 @@
 ## Install
 
 ```
-$ npm install --global opn-cli
+$ npm install --global open-cli
 ```
 
 
 ## Usage
 
 ```
-$ opn --help
+$ open-cli --help
 
   Usage
-    $ opn <file|url> [--wait] [--background] [-- <app> [args]]
-    $ cat <file> | opn [--ext] [--wait] [--background] [-- <app> [args]]
+    $ open-cli <file|url> [--wait] [--background] [-- <app> [args]]
+    $ cat <file> | open-cli [--ext] [--wait] [--background] [-- <app> [args]]
 
   Options
     --wait         Wait for the app to exit
@@ -25,12 +25,12 @@ $ opn --help
     --ext          File extension for when stdin file type can't be detected
 
   Examples
-    $ opn https://sindresorhus.com
-    $ opn https://sindresorhus.com -- firefox
-    $ opn https://sindresorhus.com -- 'google chrome' --incognito
-    $ opn unicorn.png
-    $ cat unicorn.png | opn
-    $ echo '<h1>Unicorns!</h1>' | opn --ext=html
+    $ open-cli https://sindresorhus.com
+    $ open-cli https://sindresorhus.com -- firefox
+    $ open-cli https://sindresorhus.com -- 'google chrome' --incognito
+    $ open-cli unicorn.png
+    $ cat unicorn.png | open-cli
+    $ echo '<h1>Unicorns!</h1>' | open-cli --ext=html
 ```
 
 The [following file types](https://github.com/sindresorhus/file-type#supported-file-types) are automagically detected when using stdin mode.
