@@ -6,6 +6,7 @@ const getStdin = require('get-stdin');
 const tempWrite = require('temp-write');
 const fileType = require('file-type');
 
+// eslint-disable-next-line unicorn/string-content
 const cli = meow(`
 	Usage
 	  $ open-cli <file|url> [--wait] [--background] [-- <app> [args]]

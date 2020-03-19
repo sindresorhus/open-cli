@@ -2,13 +2,11 @@
 
 > Open stuff like URLs, files, executables. Cross-platform.
 
-
 ## Install
 
 ```
 $ npm install --global open-cli
 ```
-
 
 ## Usage
 
@@ -35,12 +33,6 @@ $ open-cli --help
 
 The [following file types](https://github.com/sindresorhus/file-type#supported-file-types) are automagically detected when using stdin mode.
 
-
 ## Related
 
 - [open](https://github.com/sindresorhus/open) - API for this module
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
