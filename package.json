@@ -53,7 +53,7 @@
 		"get-stdin": "^7.0.0",
 		"meow": "^6.1.0",
 		"open": "^7.0.3",
-		"temp-write": "^4.0.0"
+		"tempy": "^0.5.0"
 	},
 	"devDependencies": {
 		"ava": "^1.4.1",

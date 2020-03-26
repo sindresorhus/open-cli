@@ -3,7 +3,7 @@
 const meow = require('meow');
 const open = require('open');
 const getStdin = require('get-stdin');
-const tempWrite = require('temp-write');
+const tempy = require('tempy');
 const fileType = require('file-type');
 
 // eslint-disable-next-line unicorn/string-content
@@ -56,6 +56,6 @@ if (!input && process.stdin.isTTY) {
 		const stdin = await getStdin.buffer();
 		const type = fileType(stdin);
 		const extension = cli.flags.extension || (type && type.ext) || 'txt';
-		await open(tempWrite.sync(stdin, `open.${extension}`), cli.flags);
+		await open(await tempy.write(stdin, {extension}), cli.flags);
 	}
 })();
