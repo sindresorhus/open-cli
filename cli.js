@@ -54,7 +54,7 @@ if (!input && process.stdin.isTTY) {
 		await open(input, cli.flags);
 	} else {
 		const stdin = await getStdin.buffer();
-		const type = fileType(stdin);
+		const type = fileType.fromBuffer(stdin);
 		const extension = cli.flags.extension || (type && type.ext) || 'txt';
 		await open(tempWrite.sync(stdin, `open.${extension}`), cli.flags);
 	}
