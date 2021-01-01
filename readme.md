@@ -1,4 +1,4 @@
-# open-cli [![Build Status](https://travis-ci.org/sindresorhus/open-cli.svg?branch=master)](https://travis-ci.org/sindresorhus/open-cli)
+# open-cli
 
 > Open stuff like URLs, files, executables. Cross-platform.
 
