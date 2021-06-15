@@ -4,16 +4,18 @@
 	"description": "Open stuff like URLs, files, executables. Cross-platform.",
 	"license": "MIT",
 	"repository": "sindresorhus/open-cli",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
 		"url": "https://sindresorhus.com"
 	},
+	"type": "module",
 	"bin": {
 		"open-cli": "cli.js"
 	},
 	"engines": {
-		"node": ">=10"
+		"node": ">=14.13"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -49,15 +51,15 @@
 		"file"
 	],
 	"dependencies": {
-		"file-type": "^14.1.4",
-		"get-stdin": "^7.0.0",
-		"meow": "^6.1.0",
-		"open": "^7.0.3",
-		"tempy": "^0.5.0"
+		"file-type": "^16.5.0",
+		"get-stdin": "^9.0.0",
+		"meow": "^10.0.1",
+		"open": "^8.2.0",
+		"tempy": "^1.0.1"
 	},
 	"devDependencies": {
-		"ava": "^1.4.1",
-		"execa": "^4.0.0",
-		"xo": "^0.28.0"
+		"ava": "^3.15.0",
+		"execa": "^5.1.1",
+		"xo": "^0.40.2"
 	}
 }

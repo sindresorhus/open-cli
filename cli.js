@@ -1,12 +1,10 @@
 #!/usr/bin/env node
-'use strict';
-const meow = require('meow');
-const open = require('open');
-const getStdin = require('get-stdin');
-const tempy = require('tempy');
-const fileType = require('file-type');
+import meow from 'meow';
+import open from 'open';
+import getStdin from 'get-stdin';
+import tempy from 'tempy';
+import FileType from 'file-type';
 
-// eslint-disable-next-line unicorn/string-content
 const cli = meow(`
 	Usage
 	  $ open-cli <file|url> [--wait] [--background] [-- <app> [args]]
@@ -15,7 +13,7 @@ const cli = meow(`
 	Options
 	  --wait         Wait for the app to exit
 	  --background   Do not bring the app to the foreground (macOS only)
-	  --extension    File extension for when stdin file type can't be detected
+	  --extension    File extension for when stdin file type cannot be detected
 
 	Examples
 	  $ open-cli https://sindresorhus.com
@@ -25,6 +23,7 @@ const cli = meow(`
 	  $ cat unicorn.png | open-cli
 	  $ echo '<h1>Unicorns!</h1>' | open-cli --extension=html
 `, {
+	importMeta: import.meta,
 	flags: {
 		wait: {
 			type: 'boolean',
@@ -40,22 +39,30 @@ const cli = meow(`
 	}
 });
 
-cli.flags.app = cli.input.slice(1);
-
 const input = cli.input[0];
+const options = cli.flags;
 
 if (!input && process.stdin.isTTY) {
-	console.error('Specify a filepath or URL');
+	console.error('Specify a file path or URL');
 	process.exit(1);
+}
+
+const [, appName, appArguments] = cli.input;
+if (appName) {
+	options.app = {
+		name: appName,
+		arguments: appArguments
+	};
 }
 
 (async () => {
 	if (input) {
-		await open(input, cli.flags);
+		await open(input, options);
 	} else {
 		const stdin = await getStdin.buffer();
-		const type = fileType.fromBuffer(stdin);
-		const extension = cli.flags.extension || (type && type.ext) || 'txt';
-		await open(await tempy.write(stdin, {extension}), cli.flags);
+		const type = await FileType.fromBuffer(stdin);
+		const extension = cli.flags.extension ?? type?.ext ?? 'txt';
+		const filePath = await tempy.write(stdin, {extension});
+		await open(filePath, options);
 	}
 })();

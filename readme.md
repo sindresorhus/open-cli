@@ -20,7 +20,7 @@ $ open-cli --help
   Options
     --wait         Wait for the app to exit
     --background   Do not bring the app to the foreground (macOS only)
-    --extension    File extension for when stdin file type can't be detected
+    --extension    File extension for when stdin file type cannot be detected
 
   Examples
     $ open-cli https://sindresorhus.com
