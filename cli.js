@@ -47,7 +47,7 @@ if (!input && process.stdin.isTTY) {
 	process.exit(1);
 }
 
-const [, appName, appArguments] = cli.input;
+const [, appName, ...appArguments] = cli.input;
 if (appName) {
 	options.app = {
 		name: appName,
