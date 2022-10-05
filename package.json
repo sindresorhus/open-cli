@@ -15,7 +15,7 @@
 		"open-cli": "cli.js"
 	},
 	"engines": {
-		"node": ">=14.13"
+		"node": ">=14.16"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -51,15 +51,15 @@
 		"file"
 	],
 	"dependencies": {
-		"file-type": "^16.5.0",
+		"file-type": "^18.0.0",
 		"get-stdin": "^9.0.0",
-		"meow": "^10.0.1",
-		"open": "^8.2.0",
-		"tempy": "^1.0.1"
+		"meow": "^10.1.5",
+		"open": "^8.4.0",
+		"tempy": "^3.0.0"
 	},
 	"devDependencies": {
-		"ava": "^3.15.0",
-		"execa": "^5.1.1",
-		"xo": "^0.40.2"
+		"ava": "^4.3.3",
+		"execa": "^6.1.0",
+		"xo": "^0.52.4"
 	}
 }

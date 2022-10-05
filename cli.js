@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+import process from 'node:process';
 import meow from 'meow';
 import open from 'open';
 import getStdin from 'get-stdin';
-import tempy from 'tempy';
-import FileType from 'file-type';
+import {temporaryWrite} from 'tempy';
+import {fileTypeFromBuffer} from 'file-type';
 
 const cli = meow(`
 	Usage
@@ -27,16 +28,16 @@ const cli = meow(`
 	flags: {
 		wait: {
 			type: 'boolean',
-			default: false
+			default: false,
 		},
 		background: {
 			type: 'boolean',
-			default: false
+			default: false,
 		},
 		extension: {
-			type: 'string'
-		}
-	}
+			type: 'string',
+		},
+	},
 });
 
 const input = cli.input[0];
@@ -51,18 +52,16 @@ const [, appName, ...appArguments] = cli.input;
 if (appName) {
 	options.app = {
 		name: appName,
-		arguments: appArguments
+		arguments: appArguments,
 	};
 }
 
-(async () => {
-	if (input) {
-		await open(input, options);
-	} else {
-		const stdin = await getStdin.buffer();
-		const type = await FileType.fromBuffer(stdin);
-		const extension = cli.flags.extension ?? type?.ext ?? 'txt';
-		const filePath = await tempy.write(stdin, {extension});
-		await open(filePath, options);
-	}
-})();
+if (input) {
+	await open(input, options);
+} else {
+	const stdin = await getStdin.buffer();
+	const type = await fileTypeFromBuffer(stdin);
+	const extension = cli.flags.extension ?? type?.ext ?? 'txt';
+	const filePath = await temporaryWrite(stdin, {extension});
+	await open(filePath, options);
+}

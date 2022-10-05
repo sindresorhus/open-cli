@@ -4,8 +4,8 @@
 
 ## Install
 
-```
-$ npm install --global open-cli
+```sh
+npm install --global open-cli
 ```
 
 ## Usage
