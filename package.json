@@ -51,15 +51,15 @@
 		"file"
 	],
 	"dependencies": {
-		"file-type": "^18.0.0",
+		"file-type": "^18.2.1",
 		"get-stdin": "^9.0.0",
-		"meow": "^10.1.5",
-		"open": "^8.4.0",
+		"meow": "^11.0.0",
+		"open": "^9.0.0",
 		"tempy": "^3.0.0"
 	},
 	"devDependencies": {
-		"ava": "^4.3.3",
-		"execa": "^6.1.0",
-		"xo": "^0.52.4"
+		"ava": "^5.2.0",
+		"execa": "^7.1.1",
+		"xo": "^0.53.1"
 	}
 }
