@@ -12,10 +12,10 @@
 	},
 	"type": "module",
 	"bin": {
-		"open-cli": "cli.js"
+		"open-cli": "./cli.js"
 	},
 	"engines": {
-		"node": ">=14.16"
+		"node": ">=18"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -51,15 +51,15 @@
 		"file"
 	],
 	"dependencies": {
-		"file-type": "^18.2.1",
+		"file-type": "^18.7.0",
 		"get-stdin": "^9.0.0",
-		"meow": "^11.0.0",
-		"open": "^9.0.0",
-		"tempy": "^3.0.0"
+		"meow": "^12.1.1",
+		"open": "^10.0.0",
+		"tempy": "^3.1.0"
 	},
 	"devDependencies": {
-		"ava": "^5.2.0",
-		"execa": "^7.1.1",
-		"xo": "^0.53.1"
+		"ava": "^6.0.1",
+		"execa": "^8.0.1",
+		"xo": "^0.56.0"
 	}
 }
