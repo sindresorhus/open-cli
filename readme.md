@@ -35,4 +35,4 @@ The [following file types](https://github.com/sindresorhus/file-type#supported-f
 
 ## Related
 
-- [open](https://github.com/sindresorhus/open) - API for this module
+- [open](https://github.com/sindresorhus/open) - API for this package
